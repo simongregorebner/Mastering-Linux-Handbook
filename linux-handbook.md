@@ -1562,7 +1562,7 @@ You can run the script using any of the mentioned methods:
 
 Let's see it running in action 🚀
 
-![Running a bash script](https://www.freecodecamp.org/news/content/images/2023/03/run-script-bash-2.gif)
+![Running a bash script](images/16bf89b3-ff77-4c96-b671-d232fc8cda68.gif)
 
 ### 6.5. Bash Scripting Basics
 
@@ -1674,7 +1674,7 @@ read entered_name
 echo -e "\nWelcome to bash tutorial" $entered_name
 ```
 
-![Reading the name from a script](https://www.freecodecamp.org/news/content/images/2023/03/name-sh.gif)
+![Reading the name from a script](images/f3e9a402-6075-424f-af96-6a7a34ed6b88.gif)
 
 2\.  Reading from a file
 
@@ -1702,7 +1702,7 @@ We have supplied `Zaira` as our argument to the script.
 
 **Output:**
 
-![Providing arguments to the bash script](https://www.freecodecamp.org/news/content/images/2023/03/name-sh-1.gif)
+![Providing arguments to the bash script](images/8b529e25-eea4-44d8-9035-79b676c1d0cd.gif)
 
 #### Displaying output
 
@@ -1797,7 +1797,7 @@ Finally, if the number is neither greater than `0` nor less than `0`, the script
 
 Seeing it in action 🚀
 
-![Checking if a number is even or odd](https://www.freecodecamp.org/news/content/images/2023/03/test-odd.gif)
+![Checking if a number is even or odd](images/1b30105d-1d52-405b-bbad-db8e90bf11cb.gif)
 
 #### Looping and branching in Bash
 
@@ -1816,7 +1816,7 @@ while [[ $i -le 10 ]] ; do
 done
 ```
 
-![Looping from 1 to 10 using ](https://www.freecodecamp.org/news/content/images/2023/03/image-187.png)
+![Looping from 1 to 10 using ](images/186ea5fa-7d8a-4ac6-b69a-713ffeaabcea.png)
 
 **For loop**
 
@@ -1833,7 +1833,7 @@ do
 done
 ```
 
-![Looping from 1 to 10 using ](https://www.freecodecamp.org/news/content/images/2023/03/image-186.png)
+![Looping from 1 to 10 using ](images/1c76120d-3956-42f0-8442-a94534f65481.png)
 
 **Case statements**
 
@@ -2140,11 +2140,11 @@ The groups are further divided into '*primary'* and '*supplementary'* groups.
 
 File ownership can be viewed using the `ls -l` command. The first column in the output of the `ls -l` command shows the permissions of the file. Other columns show the owner of the file and the group that the file belongs to.
 
-![Detailed output of ls -l](https://www.freecodecamp.org/news/content/images/2022/04/image-146.png)
+![Detailed output of ls -l](images/f01933ed-e25b-4ab5-a249-d44f600eb246.png)
 
 Let's have a closer look into the `mode` column:
 
-![Permission classes and file types](https://www.freecodecamp.org/news/content/images/2022/04/image-147.png)
+![Permission classes and file types](images/69d19a21-1d66-4c60-a11f-c9e5d5d56e56.png)
 
 **Mode** defines two things:
 
@@ -2246,11 +2246,11 @@ Suppose I have a script and I want to make it executable for the owner of the fi
 
 Current file permissions are as follows:
 
-![image-161](https://www.freecodecamp.org/news/content/images/2022/04/image-161.png)
+![image-161](images/c387a8ac-a24c-4554-a2b2-aadc7ea22c33.png)
 
 Let's split the permissions like this:
 
-![Splitting file permissions](https://www.freecodecamp.org/news/content/images/2022/04/image-160.png)
+![Splitting file permissions](images/f527e099-b94d-4b0e-9bf0-4f46262f8459.png)
 
 To add execution rights (`x`) to owner (`u`) using symbolic mode, we can use the command below:
 
@@ -2262,7 +2262,7 @@ chmod u+x mymotd.sh
 
 Now, we can see that the execution permissions have been added for owner `zaira`.
 
-![Permission updated](https://www.freecodecamp.org/news/content/images/2022/04/image-162.png)
+![Permission updated](images/b4763048-0722-44d9-9a20-05fc564d3012.png)
 
 **Additional examples for changing permissions via symbolic method:**
 
@@ -2302,7 +2302,7 @@ Permissions can be revoked using subtraction. The below table shows how you can 
 
 This is how we performed the calculation:
 
-![Calculation breakdown for adding permissions](https://www.freecodecamp.org/news/content/images/2022/04/image-163.png)
+![Calculation breakdown for adding permissions](images/e89e32b1-4aae-4086-9caf-2a1f3e907c1e.png)
 
 Note that this is the same as `r--r-x--x`.
 
@@ -2311,14 +2311,14 @@ Note that this is the same as `r--r-x--x`.
 
 To remove execution from `other` and `group`, subtract 1 from the execute part of last 2 octets.
 
-![Calculation breakdown for removing permissions](https://www.freecodecamp.org/news/content/images/2022/04/image-164.png)
+![Calculation breakdown for removing permissions](images/22dd3fe9-f397-41cf-b172-b486a4062a4e.png)
 
 * Assign `read`, `write` and `execute` to `user`, `read` and `execute` to `group` and only `read` to others.
     
 
 This would be the same as `rwxr-xr--`.
 
-![Calculation breakdown for adding permissions](https://www.freecodecamp.org/news/content/images/2022/04/image-165.png)
+![Calculation breakdown for adding permissions](images/bf9bba8f-9828-4a7f-b841-71096ac466bd.png)
 
 ##### How to Change Ownership using the `chown` Command
 
@@ -2336,13 +2336,13 @@ Let's transfer the ownership from user `zaira` to user `news`.
 
 `chown news mymotd.sh`
 
-![view current owner](https://www.freecodecamp.org/news/content/images/2022/04/image-167.png)
+![view current owner](images/0630b4b6-3df5-4abf-90bc-dec154af3dd0.png)
 
 Command to change ownership: `sudo chown news mymotd.sh`.
 
 **Output:**
 
-![Ownership changed](https://www.freecodecamp.org/news/content/images/2022/04/image-168.png)
+![Ownership changed](images/b854a23a-d8c7-405e-bc27-c1da7b2d502a.png)
 
 ##### How to change user and group ownership simultaneously
 
@@ -3557,11 +3557,11 @@ In order to use cron jobs, an admin needs to allow cron jobs to be added for use
 
 If you get a prompt like this, it means you don't have permission to use cron.
 
-![Cron job addition denied for user John.](https://www.freecodecamp.org/news/content/images/2021/11/image-51.png)
+![Cron job addition denied for user John.](images/e5f2423b-942f-4a6f-9eb2-bb99562ae852.png)
 
 To allow John to use crons, include his name in `/etc/cron.allow`. Create the file if it doesn't exist. This will allow John to create and edit cron jobs.
 
-![Allowing John in file cron.allow](https://www.freecodecamp.org/news/content/images/2021/11/image-52.png)
+![Allowing John in file cron.allow](images/d879c183-d9e4-490f-b0f0-132218c8beb2.png)
 
 Users can also be denied access to cron job access by entering their usernames in the file `/etc/cron.d/cron.deny`.
 

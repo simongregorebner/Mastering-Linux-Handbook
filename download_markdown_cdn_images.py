@@ -1,39 +1,40 @@
 #!/usr/bin/env python3
-"""Download CDN-hosted markdown image URLs and rewrite them to local paths.
+"""Download external markdown image URLs and rewrite them to local paths.
 
 Example:
-    python scripts/download_markdown_cdn_images.py linux-handbook.md \
+    python download_markdown_cdn_images.py linux-handbook.md \
         --images-dir assets/images --backup
 """
 
 from __future__ import annotations
 
 import argparse
-import hashlib
 import mimetypes
 import os
 import re
 import sys
+import uuid
 from pathlib import Path
-from typing import Dict, Optional, Tuple
+from typing import Dict, Tuple
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
 
 IMAGE_LINK_RE = re.compile(r"!\[(?P<alt>[^\]]*)\]\((?P<inside>[^\n)]+)\)")
+ALIGN_ATTR_RE = re.compile(
+    r"\s+align\s*=\s*(?:\"[^\"]*\"|'[^']*'|[^\s)]+)", re.IGNORECASE
+)
 KNOWN_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".bmp", ".avif"}
 
 
-def looks_like_cdn(url: str, domains: list[str]) -> bool:
+def is_external_reference(url: str) -> bool:
     parsed = urlparse(url)
-    if parsed.scheme not in {"http", "https"}:
-        return False
-    host = (parsed.hostname or "").lower()
-    if not host:
-        return False
-    if domains:
-        return any(host == d or host.endswith("." + d) for d in domains)
-    return "cdn" in host
+    return parsed.scheme in {"http", "https"}
+
+
+def is_local_reference(url: str) -> bool:
+    parsed = urlparse(url)
+    return parsed.scheme in {"", "file"}
 
 
 def split_inside(inside: str) -> Tuple[str, str]:
@@ -41,6 +42,13 @@ def split_inside(inside: str) -> Tuple[str, str]:
     url = parts[0] if parts else ""
     remainder = " " + parts[1] if len(parts) > 1 else ""
     return url, remainder
+
+
+def sanitize_remainder(remainder: str) -> str:
+    """Remove non-standard align attributes from markdown image links."""
+    cleaned = ALIGN_ATTR_RE.sub("", remainder)
+    cleaned = re.sub(r"\s{2,}", " ", cleaned).strip()
+    return f" {cleaned}" if cleaned else ""
 
 
 def infer_extension(url: str, content_type: str) -> str:
@@ -54,25 +62,19 @@ def infer_extension(url: str, content_type: str) -> str:
     return ".img"
 
 
-def build_unique_filename(url: str, candidate_name: str, existing: set[str]) -> str:
-    name = Path(candidate_name).name or "image"
-    stem = Path(name).stem or "image"
-    suffix = Path(name).suffix
-    if not suffix:
-        suffix = ".img"
+def generate_uuid_filename(extension: str, existing: set[str]) -> str:
+    ext = extension if extension.startswith(".") else f".{extension}"
+    if ext == ".":
+        ext = ".img"
 
-    final_name = f"{stem}{suffix}"
-    if final_name not in existing:
-        existing.add(final_name)
-        return final_name
-
-    short_hash = hashlib.sha256(url.encode("utf-8")).hexdigest()[:8]
-    final_name = f"{stem}-{short_hash}{suffix}"
-    existing.add(final_name)
-    return final_name
+    while True:
+        filename = f"{uuid.uuid4()}{ext}"
+        if filename not in existing:
+            existing.add(filename)
+            return filename
 
 
-def download_file(url: str, destination: Path, timeout: int) -> Optional[str]:
+def download_file(url: str, destination: Path, timeout: int) -> str:
     req = Request(url, headers={"User-Agent": "markdown-image-localizer/1.0"})
     with urlopen(req, timeout=timeout) as response:
         content_type = response.headers.get("Content-Type", "")
@@ -84,7 +86,6 @@ def download_file(url: str, destination: Path, timeout: int) -> Optional[str]:
 def rewrite_markdown(
     markdown_path: Path,
     images_dir: Path,
-    domains: list[str],
     dry_run: bool,
     timeout: int,
 ) -> Tuple[int, int, int]:
@@ -102,9 +103,13 @@ def rewrite_markdown(
         nonlocal downloaded, replaced, failed
 
         inside = match.group("inside")
-        url, remainder = split_inside(inside)
+        url, raw_remainder = split_inside(inside)
+        remainder = sanitize_remainder(raw_remainder)
 
-        if not looks_like_cdn(url, domains):
+        if not is_external_reference(url):
+            if is_local_reference(url) and remainder != raw_remainder:
+                replaced += 1
+                return f"![{match.group('alt')}]({url}{remainder})"
             return match.group(0)
 
         if url in url_to_local:
@@ -113,38 +118,22 @@ def rewrite_markdown(
             return f"![{match.group('alt')}]({local_rel}{remainder})"
 
         parsed = urlparse(url)
-        base_name = Path(parsed.path).name or "image"
-
-        # We may need content-type to infer extension if URL has no image suffix.
-        suffix = Path(base_name).suffix.lower()
-        needs_extension = suffix not in KNOWN_EXTENSIONS
-
-        candidate_name = base_name
-        if needs_extension and "." not in base_name:
-            candidate_name = "image"
-
-        unique_name = build_unique_filename(url, candidate_name, reserved_names)
+        path_suffix = Path(parsed.path).suffix.lower()
+        initial_ext = path_suffix if path_suffix in KNOWN_EXTENSIONS else ".img"
+        unique_name = generate_uuid_filename(initial_ext, reserved_names)
         local_abs = images_dir / unique_name
 
         try:
             content_type = ""
             if not dry_run:
                 content_type = download_file(url, local_abs, timeout)
-                if needs_extension:
-                    final_ext = infer_extension(url, content_type)
-                    if local_abs.suffix.lower() != final_ext:
-                        renamed = local_abs.with_suffix(final_ext)
-                        if renamed.name in reserved_names:
-                            short_hash = hashlib.sha256(
-                                url.encode("utf-8")
-                            ).hexdigest()[:8]
-                            renamed = renamed.with_name(
-                                f"{renamed.stem}-{short_hash}{final_ext}"
-                            )
-                        local_abs.rename(renamed)
-                        reserved_names.discard(unique_name)
-                        reserved_names.add(renamed.name)
-                        local_abs = renamed
+                final_ext = infer_extension(url, content_type)
+                if local_abs.suffix.lower() != final_ext:
+                    renamed_name = generate_uuid_filename(final_ext, reserved_names)
+                    renamed = images_dir / renamed_name
+                    local_abs.rename(renamed)
+                    reserved_names.discard(unique_name)
+                    local_abs = renamed
                 downloaded += 1
             else:
                 downloaded += 1
@@ -170,7 +159,10 @@ def rewrite_markdown(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Download CDN-hosted image links from markdown and rewrite URLs to local files."
+        description=(
+            "Download all external image links from markdown and rewrite URLs "
+            "to local files."
+        )
     )
     parser.add_argument(
         "markdown_file", type=Path, help="Path to markdown file to process"
@@ -180,12 +172,6 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=Path("images"),
         help="Directory where downloaded images will be stored (default: images)",
-    )
-    parser.add_argument(
-        "--domain",
-        action="append",
-        default=[],
-        help="Limit downloads to these hostnames (can be repeated). Default behavior matches hosts containing 'cdn'.",
     )
     parser.add_argument(
         "--dry-run", action="store_true", help="Preview actions without writing files"
@@ -223,7 +209,6 @@ def main() -> int:
     downloaded, replaced, failed = rewrite_markdown(
         markdown_path=markdown_path,
         images_dir=images_dir,
-        domains=[d.lower() for d in args.domain],
         dry_run=args.dry_run,
         timeout=args.timeout,
     )
