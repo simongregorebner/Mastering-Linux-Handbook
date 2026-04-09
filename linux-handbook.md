@@ -138,7 +138,7 @@ The kernel acts as a bridge between applications and the hardware-level data pro
 
 The kernel loads into memory first when an operating system starts and remains there until the system shuts down. It is responsible for tasks like disk management, task management, and memory management.
 
-![Linux Kernel Layout showing interaction of kernal with applications and OS](images/f4bb226e-f319-4cb5-bfc9-c1a80401123e.png align="center")
+![Linux Kernel Layout showing interaction of kernal with applications and OS](images/f4bb226e-f319-4cb5-bfc9-c1a80401123e.png)
 
 If you are curious about what the Linux kernel looks like, [here](https://github.com/torvalds/linux) is the GitHub link.
 
@@ -202,7 +202,7 @@ In this section, you will learn how to install Ubuntu, which is one of the most 
     
 * **Step 4 – Follow the prompts.** Once, the boot process starts, select `try or install ubuntu`.
     
-    ![Screen prompt to either try or install Ubuntu](images/5b706f94-7368-47ca-a4d6-d55a0d92eff9.png align="center")
+    ![Screen prompt to either try or install Ubuntu](images/5b706f94-7368-47ca-a4d6-d55a0d92eff9.png)
     
     The process will take some time. Once the GUI appears, you can select the language, and keyboard layout and continue. Enter your login and name. Remember the credentials as you will need them to log in to your system and access full privileges. Wait for the installation to complete.
     
@@ -213,7 +213,7 @@ In this section, you will learn how to install Ubuntu, which is one of the most 
 
 And there you go! Now you can install apps and customize your desktop.
 
-![Ubuntu 22.04.4 LTS Desktop screen](images/d150c6eb-d04e-47e0-8473-d1a837df45c4.png align="center")
+![Ubuntu 22.04.4 LTS Desktop screen](images/d150c6eb-d04e-47e0-8473-d1a837df45c4.png)
 
 For advanced installation, you can explore the following topics:
 
@@ -226,13 +226,13 @@ For advanced installation, you can explore the following topics:
 
 An important part of this handbook is learning about the terminal where you'll run all the commands and see the magic happen. You can search for the terminal by pressing the "windows" key and typing "terminal". You can pin the Terminal in the dock where other apps are located for easy access.
 
-![Search results for "terminal"](images/4dd30c5e-da73-4cd4-86bb-7dcd8cd2084c.png align="center")
+![Search results for "terminal"](images/4dd30c5e-da73-4cd4-86bb-7dcd8cd2084c.png)
 
 > 💡 The shortcut for opening the terminal is `ctrl+alt+t`
 
 You can also open the terminal from inside a folder. Right click where you are and click on "Open in Terminal". This will open the terminal in the same path.
 
-![Opening the terminal with right click menu](images/284a4a53-2d1a-4eaa-925a-1002a32c1dce.png align="center")
+![Opening the terminal with right click menu](images/284a4a53-2d1a-4eaa-925a-1002a32c1dce.png)
 
 ##### How to use Linux on a Windows machine
 
@@ -256,13 +256,13 @@ First, enable the Windows Subsystem for Linux option in settings.
     
 * Check the option "Windows Subsystem for Linux" if it isn't already.
     
-    ![Checking the option "Windows Subsystem for Linux" in Windows features](images/84f23bae-faa5-4ece-a9b6-e40f8789a061.png align="center")
+    ![Checking the option "Windows Subsystem for Linux" in Windows features](images/84f23bae-faa5-4ece-a9b6-e40f8789a061.png)
     
 * Next, open your command prompt and provide the installation commands.
     
 * Open Command Prompt as an administrator:
     
-    ![Running command prompt as an admin by right clicking the app and choosing "run as admin£](images/6052c9b4-cf07-47e0-ae89-18c3a2d3e385.png align="center")
+    ![Running command prompt as an admin by right clicking the app and choosing "run as admin£](images/6052c9b4-cf07-47e0-ae89-18c3a2d3e385.png)
     
 * Run the command below:
     
@@ -273,32 +273,32 @@ wsl --install
 
 This is the output:
 
-![Downloading progress of Ubuntu](images/b7272031-ddb7-4e04-8d7b-bafc0911da04.png align="center")
+![Downloading progress of Ubuntu](images/b7272031-ddb7-4e04-8d7b-bafc0911da04.png)
 
 Note: By default, Ubuntu will be installed.
 
-![Ubuntu installed by default using WSL](images/a01f95df-1d95-4b79-bff9-08759be0d3dc.png align="center")
+![Ubuntu installed by default using WSL](images/a01f95df-1d95-4b79-bff9-08759be0d3dc.png)
 
 * Once installation is complete, you'll need to reboot your Windows machine. So, restart your Windows machine.
     
 
 After restarting, you might see a window like this:
 
-![Window that shows after a restart](images/15620fbe-59d1-40da-9cd6-119a1fab0802.png align="center")
+![Window that shows after a restart](images/15620fbe-59d1-40da-9cd6-119a1fab0802.png)
 
 Once installation of Ubuntu is complete, you'll be prompted to enter your username and password.
 
-![User prompted to enter a username and password](images/5e3058cd-b7a1-45b1-a16d-c23b5a451504.png align="center")
+![User prompted to enter a username and password](images/5e3058cd-b7a1-45b1-a16d-c23b5a451504.png)
 
 And, that's it! You are ready to use Ubuntu.
 
 Launch Ubuntu by searching from the start menu.
 
-![Launching Ubuntu from the start menu](images/77c17856-08ac-4ec7-9380-5b06f93be095.png align="center")
+![Launching Ubuntu from the start menu](images/77c17856-08ac-4ec7-9380-5b06f93be095.png)
 
 And here we have your Ubuntu instance launched.
 
-![Successful installation of Ubuntu using WSL](images/13be3a71-5b40-440c-a6bf-d742e5b5934b.png align="center")
+![Successful installation of Ubuntu using WSL](images/13be3a71-5b40-440c-a6bf-d742e5b5934b.png)
 
 **Option 3: Use a Virtual Machine (VM)**
 
@@ -329,7 +329,7 @@ Online code editors offer editors with built-in Linux terminals. While their pri
 
 [Replit](https://replit.com/) is an example of an online code editor, where you can write your code and access the Linux shell at the same time.
 
-![Running scripts and a bash shell in Replit](images/d85d5541-b78f-4c8b-99a8-dbd8c097f661.gif align="center")
+![Running scripts and a bash shell in Replit](images/d85d5541-b78f-4c8b-99a8-dbd8c097f661.gif)
 
 #### **Web-based Linux terminals:**
 
@@ -337,7 +337,7 @@ Online Linux terminals allow you to access a Linux command-line interface direct
 
 One such example is [JSLinux](https://jslinux.org/). The screenshot below shows a ready-to-use Linux environment:
 
-![Using JSLinux to access Linux terminal](images/ddaabfc3-9a20-43b2-bedc-0af6875d2008.png align="center")
+![Using JSLinux to access Linux terminal](images/ddaabfc3-9a20-43b2-bedc-0af6875d2008.png)
 
 **Option 5: Use a Cloud-based Solution**
 
@@ -419,7 +419,7 @@ Options and arguments are not required for all commands. Some commands can be ru
 
 You can access the manual page for `ls` with `man ls`, and it'll look like this:
 
-![](images/5b1232a6-8c0b-4a97-86f0-9f15f2e14ed7.png align="center")
+![](images/5b1232a6-8c0b-4a97-86f0-9f15f2e14ed7.png)
 
 Manual pages are a great and quick way to access the documentation. I highly recommend going through man pages for the commands that you use the most.
 
@@ -532,7 +532,7 @@ The image below shows the complete file system hierarchy. Each directory servers
 
 Note that this is not an exhaustive list and different distributions may have different configurations.
 
-![Linux file system hierarchy](images/02fdbf2c-f4fa-438b-af2f-c23f59f9ddf4.png align="center")
+![Linux file system hierarchy](images/02fdbf2c-f4fa-438b-af2f-c23f59f9ddf4.png)
 
 Here is a table that shows the purpose of each directory:
 
@@ -617,7 +617,7 @@ You can use a relative path or an absolute path.
 
 For example, if you want to navigate the below file structure (following the red lines):
 
-![Example file structure](images/640cce46-6c52-4f38-9787-581747fb9798.png align="center")
+![Example file structure](images/640cce46-6c52-4f38-9787-581747fb9798.png)
 
 and you are standing at "home", the command would be like this:
 
@@ -640,7 +640,7 @@ When working with files and directories, you might want to copy, move, remove, a
 
 💡**Tip:** You can differentiate between a file and folder by looking at the first letter in the output of `ls -l`. A`'-'` represents a file and a `'d'` represents a folder.
 
-!["d" represents a folder](images/4f1688cd-ded5-43fe-b13a-9ca44ac7c4ad.png align="center")
+!["d" represents a folder](images/4f1688cd-ded5-43fe-b13a-9ca44ac7c4ad.png)
 
 #### Creating new directories using the `mkdir` command
 
@@ -1143,7 +1143,7 @@ Note: Although arrow keys would work totally fine, you can still experiment with
 
 💡**Tip:** To remember the `hjkl` sequence, use this: **h**ang back, **j**ump down, **k**ick up, **l**eap forward.
 
-![hjkl navigation guide](images/1a667ede-5f03-4acb-b40f-b10cefc64de3.png align="center")
+![hjkl navigation guide](images/1a667ede-5f03-4acb-b40f-b10cefc64de3.png)
 
 #### The three Vim modes
 
@@ -1164,7 +1164,7 @@ You need to know the 3 operating modes of Vim and how to switch between them. Ke
 
 This mode allows you to make changes to the file. To enter edit mode, press `I` while in command mode. Note the `'-- INSERT'` switch at the end of the screen.
 
-![Insert mode in Vim](images/d44cecd7-64be-4c89-9a31-dbf395b77fcb.png align="center")
+![Insert mode in Vim](images/d44cecd7-64be-4c89-9a31-dbf395b77fcb.png)
 
 **Visual mode**
 
@@ -1179,7 +1179,7 @@ This mode allows you to work on a single character, a block of text, or lines of
 
 The visual mode comes in handy when you need to copy and paste or edit lines in bulk.
 
-![Selectind text using visual mode](images/b61a1515-cac0-4470-856b-b2c15de581e8.gif align="center")
+![Selectind text using visual mode](images/b61a1515-cac0-4470-856b-b2c15de581e8.gif)
 
 **Extended command mode.**
 
@@ -1208,7 +1208,7 @@ In the command mode, type `:set hls` and press `enter`. Search using `/string-to
 
 Let's search a few strings:
 
-![Highlighting searches in Vim](images/11c4a45e-0698-4fb7-bef7-f193684ea21a.gif align="center")
+![Highlighting searches in Vim](images/11c4a45e-0698-4fb7-bef7-f193684ea21a.gif)
 
 **3\. How to exit Vim**
 
@@ -1562,7 +1562,7 @@ You can run the script using any of the mentioned methods:
 
 Let's see it running in action 🚀
 
-![Running a bash script](https://www.freecodecamp.org/news/content/images/2023/03/run-script-bash-2.gif align="left")
+![Running a bash script](https://www.freecodecamp.org/news/content/images/2023/03/run-script-bash-2.gif)
 
 ### 6.5. Bash Scripting Basics
 
@@ -1674,7 +1674,7 @@ read entered_name
 echo -e "\nWelcome to bash tutorial" $entered_name
 ```
 
-![Reading the name from a script](https://www.freecodecamp.org/news/content/images/2023/03/name-sh.gif align="left")
+![Reading the name from a script](https://www.freecodecamp.org/news/content/images/2023/03/name-sh.gif)
 
 2\.  Reading from a file
 
@@ -1702,7 +1702,7 @@ We have supplied `Zaira` as our argument to the script.
 
 **Output:**
 
-![Providing arguments to the bash script](https://www.freecodecamp.org/news/content/images/2023/03/name-sh-1.gif align="left")
+![Providing arguments to the bash script](https://www.freecodecamp.org/news/content/images/2023/03/name-sh-1.gif)
 
 #### Displaying output
 
@@ -1797,7 +1797,7 @@ Finally, if the number is neither greater than `0` nor less than `0`, the script
 
 Seeing it in action 🚀
 
-![Checking if a number is even or odd](https://www.freecodecamp.org/news/content/images/2023/03/test-odd.gif align="left")
+![Checking if a number is even or odd](https://www.freecodecamp.org/news/content/images/2023/03/test-odd.gif)
 
 #### Looping and branching in Bash
 
@@ -1816,7 +1816,7 @@ while [[ $i -le 10 ]] ; do
 done
 ```
 
-![Looping from 1 to 10 using ](https://www.freecodecamp.org/news/content/images/2023/03/image-187.png align="left")
+![Looping from 1 to 10 using ](https://www.freecodecamp.org/news/content/images/2023/03/image-187.png)
 
 **For loop**
 
@@ -1833,7 +1833,7 @@ do
 done
 ```
 
-![Looping from 1 to 10 using ](https://www.freecodecamp.org/news/content/images/2023/03/image-186.png align="left")
+![Looping from 1 to 10 using ](https://www.freecodecamp.org/news/content/images/2023/03/image-186.png)
 
 **Case statements**
 
@@ -1941,7 +1941,7 @@ A package manager also stores an index of all of the packages available from a r
 
 The generic process of downloading software from a repo looks something like this:
 
-![Rrocess of downloading software from a remote repo](images/f4961606-b9c4-4ed7-8edc-61e0fc6908e4.png align="center")
+![Rrocess of downloading software from a remote repo](images/f4961606-b9c4-4ed7-8edc-61e0fc6908e4.png)
 
 If we talk specifically about Ubuntu,
 
@@ -2006,11 +2006,11 @@ If you are not comfortable with the command line, you can use a GUI application 
 
 Synaptic is a GUI package management application that helps in listing the installed packages, their status, pending updates, and so on. It offers custom filters to help you narrow down the search results.
 
-![](images/0f362ed7-c371-4a58-96c2-c359178cdbd9.png align="center")
+![](images/0f362ed7-c371-4a58-96c2-c359178cdbd9.png)
 
 You can also right-click on a package and view further details like the dependencies, maintainer, size, and the installed files.
 
-![View a package's detail](images/33b7ad76-2492-4805-8133-35c8cd3c4a0a.png align="center")
+![View a package's detail](images/33b7ad76-2492-4805-8133-35c8cd3c4a0a.png)
 
 ### 7.4. Installing downloaded packages from a website
 
@@ -2027,7 +2027,7 @@ Note: Replace "directory" with the directory where the package is stored and "pa
 
 Alternatively, you can right-click, select "Open With Other Application," and choose a GUI app of your choice.
 
-![Installing a software using an app](images/f16d83ac-ca9a-4502-a80c-e6a25dee5c68.png align="center")
+![Installing a software using an app](images/f16d83ac-ca9a-4502-a80c-e6a25dee5c68.png)
 
 💡 **Tip:** In Ubuntu, you can see a list of installed packages with `dpkg --list`.
 
@@ -2140,11 +2140,11 @@ The groups are further divided into '*primary'* and '*supplementary'* groups.
 
 File ownership can be viewed using the `ls -l` command. The first column in the output of the `ls -l` command shows the permissions of the file. Other columns show the owner of the file and the group that the file belongs to.
 
-![Detailed output of ls -l](https://www.freecodecamp.org/news/content/images/2022/04/image-146.png align="left")
+![Detailed output of ls -l](https://www.freecodecamp.org/news/content/images/2022/04/image-146.png)
 
 Let's have a closer look into the `mode` column:
 
-![Permission classes and file types](https://www.freecodecamp.org/news/content/images/2022/04/image-147.png align="left")
+![Permission classes and file types](https://www.freecodecamp.org/news/content/images/2022/04/image-147.png)
 
 **Mode** defines two things:
 
@@ -2246,11 +2246,11 @@ Suppose I have a script and I want to make it executable for the owner of the fi
 
 Current file permissions are as follows:
 
-![image-161](https://www.freecodecamp.org/news/content/images/2022/04/image-161.png align="left")
+![image-161](https://www.freecodecamp.org/news/content/images/2022/04/image-161.png)
 
 Let's split the permissions like this:
 
-![Splitting file permissions](https://www.freecodecamp.org/news/content/images/2022/04/image-160.png align="left")
+![Splitting file permissions](https://www.freecodecamp.org/news/content/images/2022/04/image-160.png)
 
 To add execution rights (`x`) to owner (`u`) using symbolic mode, we can use the command below:
 
@@ -2262,7 +2262,7 @@ chmod u+x mymotd.sh
 
 Now, we can see that the execution permissions have been added for owner `zaira`.
 
-![Permission updated](https://www.freecodecamp.org/news/content/images/2022/04/image-162.png align="left")
+![Permission updated](https://www.freecodecamp.org/news/content/images/2022/04/image-162.png)
 
 **Additional examples for changing permissions via symbolic method:**
 
@@ -2302,7 +2302,7 @@ Permissions can be revoked using subtraction. The below table shows how you can 
 
 This is how we performed the calculation:
 
-![Calculation breakdown for adding permissions](https://www.freecodecamp.org/news/content/images/2022/04/image-163.png align="left")
+![Calculation breakdown for adding permissions](https://www.freecodecamp.org/news/content/images/2022/04/image-163.png)
 
 Note that this is the same as `r--r-x--x`.
 
@@ -2311,14 +2311,14 @@ Note that this is the same as `r--r-x--x`.
 
 To remove execution from `other` and `group`, subtract 1 from the execute part of last 2 octets.
 
-![Calculation breakdown for removing permissions](https://www.freecodecamp.org/news/content/images/2022/04/image-164.png align="left")
+![Calculation breakdown for removing permissions](https://www.freecodecamp.org/news/content/images/2022/04/image-164.png)
 
 * Assign `read`, `write` and `execute` to `user`, `read` and `execute` to `group` and only `read` to others.
     
 
 This would be the same as `rwxr-xr--`.
 
-![Calculation breakdown for adding permissions](https://www.freecodecamp.org/news/content/images/2022/04/image-165.png align="left")
+![Calculation breakdown for adding permissions](https://www.freecodecamp.org/news/content/images/2022/04/image-165.png)
 
 ##### How to Change Ownership using the `chown` Command
 
@@ -2336,13 +2336,13 @@ Let's transfer the ownership from user `zaira` to user `news`.
 
 `chown news mymotd.sh`
 
-![view current owner](https://www.freecodecamp.org/news/content/images/2022/04/image-167.png align="left")
+![view current owner](https://www.freecodecamp.org/news/content/images/2022/04/image-167.png)
 
 Command to change ownership: `sudo chown news mymotd.sh`.
 
 **Output:**
 
-![Ownership changed](https://www.freecodecamp.org/news/content/images/2022/04/image-168.png align="left")
+![Ownership changed](https://www.freecodecamp.org/news/content/images/2022/04/image-168.png)
 
 ##### How to change user and group ownership simultaneously
 
@@ -3188,7 +3188,7 @@ The `systemd` process has a process ID (PID) of `1` and is responsible for initi
 
 A parent process duplicates its own address space (fork) to create a new (child) process structure. Each new process is assigned a unique process ID (PID) for tracking and security purposes. The PID and the parent's process ID (PPID) are part of the new process environment. Any process can create a child process.
 
-![Process and its initialization to parent and child](images/f24fac4b-18f3-4a39-8659-93d32c533256.png align="center")
+![Process and its initialization to parent and child](images/f24fac4b-18f3-4a39-8659-93d32c533256.png)
 
 Through the fork routine, a child process inherits security identities, previous and current file descriptors, port and resource privileges, environment variables, and program code. A child process may then execute its own program code.
 
@@ -3200,7 +3200,7 @@ Upon exiting, the child process has already closed or discarded its resources an
 
 Processes in Linux assume different states during their lifecycle. The state of a process indicates what the process is currently doing and how it is interacting with the system. The processes transition between states based on their execution status and the system's scheduling algorithm.
 
-![Linux process states and transitions](images/3054dfe2-c42c-4d62-9e12-e3aec479d53a.png align="center")
+![Linux process states and transitions](images/3054dfe2-c42c-4d62-9e12-e3aec479d53a.png)
 
 The processes in a Linux system can be in one of the following states:
 
@@ -3557,11 +3557,11 @@ In order to use cron jobs, an admin needs to allow cron jobs to be added for use
 
 If you get a prompt like this, it means you don't have permission to use cron.
 
-![Cron job addition denied for user John.](https://www.freecodecamp.org/news/content/images/2021/11/image-51.png align="left")
+![Cron job addition denied for user John.](https://www.freecodecamp.org/news/content/images/2021/11/image-51.png)
 
 To allow John to use crons, include his name in `/etc/cron.allow`. Create the file if it doesn't exist. This will allow John to create and edit cron jobs.
 
-![Allowing John in file cron.allow](https://www.freecodecamp.org/news/content/images/2021/11/image-52.png align="left")
+![Allowing John in file cron.allow](https://www.freecodecamp.org/news/content/images/2021/11/image-52.png)
 
 Users can also be denied access to cron job access by entering their usernames in the file `/etc/cron.d/cron.deny`.
 
@@ -4297,7 +4297,7 @@ Another way to check the memory in real time is to use the `top` command. There 
 * Alternately, press `m` to see the memory usage in a progress bar like format:
     
 
-![](images/f1695a67-13d6-4222-b71c-07176a52acb8.png align="center")
+![](images/f1695a67-13d6-4222-b71c-07176a52acb8.png)
 
 If you see the memory consumed near to `100%`, you might want to consider identifying the process that is consuming the memory and take necessary action. You might also want to consider adding more memory to your system.
 
@@ -4504,7 +4504,7 @@ Faulty CPUs can also lead to a number of performance issues. To test your CPU, y
 
 In the above command, `4` is the number of CPU cores you’d like to test and `60` is the duration in seconds. The command will stress all 4 CPU cores for 60 seconds. Notice the CPU is at `100%` load during the test:
 
-![](images/9ab475c2-7f09-4c40-989b-e474e334935c.png align="center")
+![](images/9ab475c2-7f09-4c40-989b-e474e334935c.png)
 
 If the system crashes during this test, the CPU may be faulty.
 
